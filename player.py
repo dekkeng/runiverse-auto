@@ -61,9 +61,10 @@ class Player:
         pyautogui.moveTo(pos, duration=0.01)
         
     def key(self, key):
-        pyautogui.keyDown(key)
-        self.wait(random.uniform(0,self.WALK_MAX_DURATION))
-        pyautogui.keyUp(key)
+        if self.WALK_MAX_DURATION > 0:
+            pyautogui.keyDown(key)
+            self.wait(random.uniform(0,self.WALK_MAX_DURATION))
+            pyautogui.keyUp(key)
         
     def walk(self):
         self.key('A')
