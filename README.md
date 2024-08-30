@@ -30,7 +30,7 @@ There are default configurations that suit my screen, but you can adjust to suit
 Adjust values inside config.txt file to suit your screen and run bot smoothly.
 
 | Name | Description | Type | Default |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | WALK_MAX_DURATION | max duration to walk around  | Second | 2 |
 
 # Remarks
