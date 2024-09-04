@@ -20,7 +20,10 @@ class Player:
         self.skill2 = self.getPos("skill2")
         self.skill3 = self.getPos("skill3")
         self.skill4 = self.getPos("skill4")
+        self.titanium = self.getPos("titanium")
         self.diamond = self.getPos("diamond")
+        self.select = self.getPos("select")
+        self.profile = self.getPos("profile")
         
     def autoAttack(self):
         #self.log("Check screen...")
@@ -28,26 +31,40 @@ class Player:
         self.updatePos()
         if self.skill4 != None:
             self.click(self.skill4)
+            self.move([10,10])
         elif self.skill3 != None:
             self.click(self.skill3)
+            self.move([10,10])
         elif self.skill2 != None:
             self.click(self.skill2)
+            self.move([10,10])
         elif self.skill1 != None:
             self.click(self.skill1)
+            self.move([10,10])
         elif self.diamond != None:
             self.click(self.diamond)
+            self.move([10,10])
+        elif self.titanium != None:
+            self.click(self.titanium)
+            self.move([10,10])
         elif self.cont != None:
             self.log("CONTINUE")
             self.click(self.cont)
+            self.move([10,10])
             self.wait(5)
         elif self.cont2 != None:
             self.log("CONTINUE2")
             self.click(self.cont2)
+            self.move([10,10])
             self.wait(5)
-        else:
+        elif self.select != None:
+            self.log("SELECT")
+            self.click(self.select)
+            self.move([10,10])
+            self.wait(5)
+        elif self.profile != None:
             self.walk()
-        self.move([10,10])
-        self.wait(1)
+        self.wait(2)
 
     def getPos(self, file, conf = 0.9):
         return pyautogui.locateCenterOnScreen('./sample/'+file+'.png', confidence = conf)
