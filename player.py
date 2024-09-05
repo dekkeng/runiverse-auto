@@ -57,7 +57,7 @@ class Player:
         #   return True
         elif self.checkClick("select"):
             return True
-        elif self.getPos("profile"):
+        elif self.getPos("profile") != None:
             self.walk()
 
     def getPos(self, file, conf = 0.9):
