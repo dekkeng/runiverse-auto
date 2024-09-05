@@ -24,47 +24,41 @@ class Player:
         self.diamond = self.getPos("diamond")
         self.select = self.getPos("select")
         self.profile = self.getPos("profile")
+    
+    def checkClick(self, type):        
+        pos = self.getPos(type)
+        if pos != None:
+            self.click(pos)
+            self.move([10,10])
+            return True
+        else:  
+            return False
         
     def autoAttack(self):
         #self.log("Check screen...")
         #self.move([1,1])
         #self.updatePos()
-        if self.getPos("skill4") != None:
-            self.click(self.skill4)
-            self.move([10,10])
-        elif self.getPos("skill3") != None:
-            self.click(self.skill3)
-            self.move([10,10])
-        elif self.getPos("skill2") != None:
-            self.click(self.skill2)
-            self.move([10,10])
-        elif self.getPos("skill1") != None:
-            self.click(self.skill1)
-            self.move([10,10])
-        elif self.getPos("diamond") != None:
-            self.click(self.diamond)
-            self.move([10,10])
-        elif self.getPos("titanium") != None:
-            self.click(self.titanium)
-            self.move([10,10])
-        elif self.getPos("continue") != None:
-            self.log("CONTINUE")
-            self.click(self.cont)
-            self.move([10,10])
-            self.wait(5)
-        # elif self.getPos("continue2") != None:
-        #     self.log("CONTINUE2")
-        #     self.click(self.cont2)
-        #     self.move([10,10])
-        #     self.wait(5)
-        elif self.getPos("select") != None:
-            self.log("SELECT")
-            self.click(self.select)
-            self.move([10,10])
-            self.wait(5)
-        elif self.getPos("profile") != None:
+        self.wait(1)
+        if self.checkClick("skill4"):
+            return True
+        elif self.checkClick("skill3"):
+            return True
+        elif self.checkClick("skill2"):
+            return True
+        elif self.checkClick("skill1"):
+            return True
+        elif self.checkClick("diamond"):
+            return True
+        elif self.checkClick("titanium"):
+            return True
+        elif self.checkClick("continue"):
+            return True
+        # elif self.checkClick("continue2"):
+        #   return True
+        elif self.checkClick("select"):
+            return True
+        elif self.getPos("profile"):
             self.walk()
-        #self.wait(2)
 
     def getPos(self, file, conf = 0.9):
         return pyautogui.locateCenterOnScreen('./sample/'+file+'.png', confidence = conf, grayscale=True)
