@@ -28,49 +28,49 @@ class Player:
     def autoAttack(self):
         #self.log("Check screen...")
         #self.move([1,1])
-        self.updatePos()
-        if self.skill4 != None:
+        #self.updatePos()
+        if self.getPos("skill4") != None:
             self.click(self.skill4)
             self.move([10,10])
-        elif self.skill3 != None:
+        elif self.getPos("skill3") != None:
             self.click(self.skill3)
             self.move([10,10])
-        elif self.skill2 != None:
+        elif self.getPos("skill2") != None:
             self.click(self.skill2)
             self.move([10,10])
-        elif self.skill1 != None:
+        elif self.getPos("skill1") != None:
             self.click(self.skill1)
             self.move([10,10])
-        elif self.diamond != None:
+        elif self.getPos("diamond") != None:
             self.click(self.diamond)
             self.move([10,10])
-        elif self.titanium != None:
+        elif self.getPos("titanium") != None:
             self.click(self.titanium)
             self.move([10,10])
-        elif self.cont != None:
+        elif self.getPos("continue") != None:
             self.log("CONTINUE")
             self.click(self.cont)
             self.move([10,10])
             self.wait(5)
-        elif self.cont2 != None:
-            self.log("CONTINUE2")
-            self.click(self.cont2)
-            self.move([10,10])
-            self.wait(5)
-        elif self.select != None:
+        # elif self.getPos("continue2") != None:
+        #     self.log("CONTINUE2")
+        #     self.click(self.cont2)
+        #     self.move([10,10])
+        #     self.wait(5)
+        elif self.getPos("select") != None:
             self.log("SELECT")
             self.click(self.select)
             self.move([10,10])
             self.wait(5)
-        elif self.profile != None:
+        elif self.getPos("profile") != None:
             self.walk()
-        self.wait(2)
+        #self.wait(2)
 
     def getPos(self, file, conf = 0.9):
-        return pyautogui.locateCenterOnScreen('./sample/'+file+'.png', confidence = conf)
+        return pyautogui.locateCenterOnScreen('./sample/'+file+'.png', confidence = conf, grayscale=True)
 
     def getAllPos(self, file, conf = 0.7):
-        return pyautogui.locateAllOnScreen('./sample/'+file+'.png', confidence = conf)
+        return pyautogui.locateAllOnScreen('./sample/'+file+'.png', confidence = conf, grayscale=True)
 
     def wait(self, length = 0.01):
         sleep(length)
