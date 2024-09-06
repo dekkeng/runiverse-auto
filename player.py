@@ -28,6 +28,7 @@ class Player:
     def checkClick(self, type):        
         pos = self.getPos(type)
         if pos != None:
+            self.key('1')
             self.click(pos)
             self.move([10,10])
             return True
