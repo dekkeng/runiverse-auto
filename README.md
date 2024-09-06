@@ -1,6 +1,9 @@
 # Runiverse game auto
 This is a automation attack for Runiverse.world [For education purpose only]
 
+# Register
+https://cult.quest/dekkeng
+
 # Requirements
 - Installed Python 2.7+ (https://www.python.org/downloads/)
 
