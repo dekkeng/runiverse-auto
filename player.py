@@ -20,6 +20,7 @@ class Player:
         self.skill2 = self.getPos("skill2")
         self.skill3 = self.getPos("skill3")
         self.skill4 = self.getPos("skill4")
+        self.pine = self.getPos("pine")
         self.titanium = self.getPos("titanium")
         self.diamond = self.getPos("diamond")
         self.select = self.getPos("select")
@@ -48,9 +49,13 @@ class Player:
             return True
         elif self.checkClick("skill1"):
             return True
+        elif self.checkClick("pine"):
+            return True
         elif self.checkClick("diamond"):
             return True
         elif self.checkClick("titanium"):
+            return True
+        elif self.checkClick("bush"):
             return True
         elif self.checkClick("continue"):
             return True
@@ -79,10 +84,8 @@ class Player:
             pyautogui.keyUp(key)
         
     def walk(self):
-        self.key('A')
-        self.key('W')
-        self.key('D')
-        self.key('S')
+        dir = random.choice(['A', 'W', 'D', 'S'])
+        self.key(dir)
 
     def drag(self, pos1, pos2):
         pyautogui.mouseDown(pos1, duration=0.01)
