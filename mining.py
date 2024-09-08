@@ -90,7 +90,7 @@ def check():
         wait(0.5)
         key('1')
         wait(0.5)
-    wait(3)
+    wait(ๅ)
 
 try:
     initial()

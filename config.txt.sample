@@ -1,4 +1,4 @@
-WALK_MAX_DURATION               = 2
+WALK_MAX_DURATION               = 0
 RUNIVERSE_USER                  = 
 RUNIVERSE_PASS                  = 
 WAIT_LOGIN_LOADING              = 30
