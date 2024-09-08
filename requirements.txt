@@ -5,3 +5,5 @@ pywin32==302
 Pillow==8.4.0
 opencv-python==4.5.4.58
 python-dotenv==0.21.0
+selenium==4.22.0
+chromedriver-autoinstaller==0.6.4s

@@ -29,7 +29,7 @@ class Player:
     def checkClick(self, type):        
         pos = self.getPos(type)
         if pos != None:
-            self.key('1')
+            #self.key('1')
             self.click(pos)
             self.move([10,10])
             return True
@@ -49,14 +49,23 @@ class Player:
             return True
         elif self.checkClick("skill1"):
             return True
-        elif self.checkClick("pine"):
+        elif self.checkClick("later"):
             return True
-        elif self.checkClick("diamond"):
-            return True
-        elif self.checkClick("titanium"):
-            return True
-        elif self.checkClick("bush"):
-            return True
+        # elif self.checkClick("pine"):
+        #     return True
+        # elif self.checkClick("diamond"):
+        #     return True
+        # elif self.checkClick("titanium"):
+        #     return True
+        # elif self.checkClick("axe"):
+        #     self.key('e')
+        #     return True
+        # elif self.checkClick("soul"):
+        #     self.key('e')
+        #     return True
+        # elif self.checkClick("bush"):
+        #     self.key('e')
+        #     return True
         elif self.checkClick("continue"):
             return True
         # elif self.checkClick("continue2"):
@@ -78,14 +87,15 @@ class Player:
         pyautogui.moveTo(pos, duration=0.01)
         
     def key(self, key):
-        if self.WALK_MAX_DURATION > 0:
-            pyautogui.keyDown(key)
-            self.wait(random.uniform(0,self.WALK_MAX_DURATION))
-            pyautogui.keyUp(key)
+        pyautogui.keyDown(key)
+        self.wait(random.uniform(0,self.WALK_MAX_DURATION))
+        pyautogui.keyUp(key)
         
     def walk(self):
-        dir = random.choice(['A', 'W', 'D', 'S'])
-        self.key(dir)
+        if self.WALK_MAX_DURATION > 0:
+            dir = random.choice(['A', 'W', 'D', 'S'])
+            self.key(dir)
+        self.key('e')
 
     def drag(self, pos1, pos2):
         pyautogui.mouseDown(pos1, duration=0.01)
