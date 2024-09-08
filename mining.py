@@ -20,6 +20,7 @@ RUNIVERSE_USER = os.getenv('RUNIVERSE_USER', '')
 RUNIVERSE_PASS = os.getenv('RUNIVERSE_PASS', '')
 WAIT_LOGIN_LOADING = float(os.getenv('WAIT_LOGIN_LOADING', 30))
 WALK_MAX_DURATION = float(os.getenv('WALK_MAX_DURATION', 2))
+MINING_AUTO_ATTACK = float(os.getenv('MINING_AUTO_ATTACK', 0))
 
 print("Start Runiverse Mining!")
 
@@ -35,7 +36,7 @@ def click(element):
     driver.execute_script("arguments[0].click();", element)
 
 def key(key, delay = 0):    
-    log("Key..."+key)
+    #log("Key..."+key)
     actions = ActionChains(driver)
     actions.key_down(key)
     actions.pause(delay)
@@ -80,14 +81,16 @@ def walk():
 
 def check():
     walk()
-    key('4')
-    wait(0.5)
-    key('3')
-    wait(0.5)
-    key('2')
-    wait(0.5)
-    key('1')
-    wait(0.5)
+    if MINING_AUTO_ATTACK > 0:
+        key('4')
+        wait(0.5)
+        key('3')
+        wait(0.5)
+        key('2')
+        wait(0.5)
+        key('1')
+        wait(0.5)
+    wait(3)
 
 try:
     initial()
