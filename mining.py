@@ -61,7 +61,7 @@ def initial():
 def walk():
     if WALK_MAX_DURATION > 0:
         dir = random.choice(['A', 'W', 'D', 'S'])
-        key(dir, WALK_MAX_DURATION)
+        key(dir, random.uniform(0,WALK_MAX_DURATION))
     key('e')
 
 # def check():
