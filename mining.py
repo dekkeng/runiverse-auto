@@ -62,7 +62,9 @@ def walk():
     if WALK_MAX_DURATION > 0:
         dir = random.choice(['A', 'W', 'D', 'S'])
         key(dir, random.uniform(0,WALK_MAX_DURATION))
-    key('e')
+        
+    if MINING_AUTO_ATTACK < 2:
+        key('e')
 
 # def check():
 #     char_btn = driver.find_element(By.XPATH, "//img[@src='{}']".format('../images/UI/Container/Hud/Button_Character_Sheet.png'))
