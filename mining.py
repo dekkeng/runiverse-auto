@@ -45,6 +45,7 @@ def key(key, delay = 0):
 
 def initial():
     log("Checking...")    
+    wait(5)
     login_email = driver.find_element(By.ID, 'email')
     login_pass = driver.find_element(By.ID, 'password')
     if login_email.is_displayed() and login_pass.is_displayed():

@@ -76,10 +76,16 @@ class Player:
             self.walk()
 
     def getPos(self, file, conf = 0.9):
-        return pyautogui.locateCenterOnScreen('./sample/'+file+'.png', confidence = conf, grayscale=True)
+        try:
+            return pyautogui.locateCenterOnScreen('./sample/'+file+'.png', confidence = conf, grayscale=True)
+        except pyautogui.ImageNotFoundException:
+            return None
 
     def getAllPos(self, file, conf = 0.7):
-        return pyautogui.locateAllOnScreen('./sample/'+file+'.png', confidence = conf, grayscale=True)
+        try:
+            return pyautogui.locateAllOnScreen('./sample/'+file+'.png', confidence = conf, grayscale=True)
+        except pyautogui.ImageNotFoundException:
+            return None
 
     def wait(self, length = 0.01):
         sleep(length)
