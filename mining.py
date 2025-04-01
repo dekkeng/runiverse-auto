@@ -56,10 +56,11 @@ def initial():
         wait(0.5)
         key(Keys.ENTER)
         wait(WAIT_LOGIN_LOADING)
+        find_click("select character")
         key(Keys.ENTER)
         wait(WAIT_LOGIN_LOADING)
 
-def walk():
+def walk():        
     if WALK_MAX_DURATION > 0:
         dir = random.choice(['A', 'W', 'D', 'S'])
         key(dir, random.uniform(0,WALK_MAX_DURATION))
@@ -82,18 +83,30 @@ def walk():
 #         wait(0.5)
 #    wait(1)
 
+def find_click(txt):    
+    try:
+        for _ in range(5):
+            btn = driver.find_element(By.XPATH, "//div[contains(text(), '{}')]".format(txt))
+            if btn.is_displayed():
+                click(btn)
+            else:
+                wait(1)
+    except Exception:
+        pass    
+
 def check():
+    find_click("Continue")
     walk()
     if MINING_AUTO_ATTACK > 0:
         key('4')
-        wait(0.5)
+        wait(0.2)
         key('3')
-        wait(0.5)
+        wait(0.2)
         key('2')
-        wait(0.5)
+        wait(0.2)
         key('1')
-        wait(0.5)
-    wait(1)
+        wait(0.2)
+    wait(0.5)
 
 try:
     initial()
