@@ -43,22 +43,23 @@ def key(key, delay = 0):
     actions.key_up(key)
     actions.perform()
 
-def initial():
-    log("Checking...")    
-    wait(5)
-    login_email = driver.find_element(By.ID, 'email')
-    login_pass = driver.find_element(By.ID, 'password')
-    if login_email.is_displayed() and login_pass.is_displayed():
-        log("Logging in...")
-        login_email.send_keys(RUNIVERSE_USER)
-        wait(0.5)
-        login_pass.send_keys(RUNIVERSE_PASS)
-        wait(0.5)
-        key(Keys.ENTER)
-        wait(WAIT_LOGIN_LOADING)
-        find_click("select character")
-        key(Keys.ENTER)
-        wait(WAIT_LOGIN_LOADING)
+def check_login():
+    try:
+        login_email = driver.find_element(By.ID, 'email')
+        login_pass = driver.find_element(By.ID, 'password')
+        if login_email.is_displayed() and login_pass.is_displayed():
+            log("Logging in...")
+            login_email.send_keys(RUNIVERSE_USER)
+            wait(0.5)
+            login_pass.send_keys(RUNIVERSE_PASS)
+            wait(0.5)
+            key(Keys.ENTER)
+            wait(WAIT_LOGIN_LOADING)
+            find_click("select character")
+            key(Keys.ENTER)
+            wait(WAIT_LOGIN_LOADING)
+    except Exception:
+        pass    
 
 def walk():        
     if WALK_MAX_DURATION > 0:
@@ -95,6 +96,7 @@ def find_click(txt):
         pass    
 
 def check():
+    check_login()
     find_click("Continue")
     walk()
     if MINING_AUTO_ATTACK > 0:
@@ -109,7 +111,7 @@ def check():
     wait(0.5)
 
 try:
-    initial()
+    wait(5)
     while True:
         check()
 except Exception as e:
